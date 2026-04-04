@@ -1,65 +1,515 @@
-/* CSS by ///ADD/// YOUR NAME */
+/* CSS by Meredith Evans */
 
 /* Imported Fonts */
-@import url('https://fonts.googleapis.com/css2?family=Merriweather:ital,opsz,wdth,wght@0,18..144,87..112,300..900;1,18..144,87..112,300..900&family=Source+Sans+3:ital,wght@0,200..900;1,200..900&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Merriweather:ital,opsz,wdth,wght@0,18..144,87..112,300..900;1,18..144,87..112,300..900&family=Source+Sans+3:ital,wght@0,200..900;1,200..900&display=swap");
 
 /* ///ADD/// CSS Reset */
+/* http://meyerweb.com/eric/tools/css/reset/
+   v2.0 | 20110126
+   License: none (public domain)
+*/
 
+html,
+body,
+div,
+span,
+applet,
+object,
+iframe,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+blockquote,
+pre,
+a,
+abbr,
+acronym,
+address,
+big,
+cite,
+code,
+del,
+dfn,
+em,
+img,
+ins,
+kbd,
+q,
+s,
+samp,
+small,
+strike,
+strong,
+sub,
+sup,
+tt,
+var,
+b,
+u,
+i,
+center,
+dl,
+dt,
+dd,
+ol,
+ul,
+li,
+fieldset,
+form,
+label,
+legend,
+table,
+caption,
+tbody,
+tfoot,
+thead,
+tr,
+th,
+td,
+article,
+aside,
+canvas,
+details,
+embed,
+figure,
+figcaption,
+footer,
+header,
+hgroup,
+menu,
+nav,
+output,
+ruby,
+section,
+summary,
+time,
+mark,
+audio,
+video {
+	margin: 0;
+	padding: 0;
+	border: 0;
+	font-size: 100%;
+	font: inherit;
+	vertical-align: baseline;
+}
+
+/* HTML5 display-role reset for older browsers */
+article,
+aside,
+details,
+figcaption,
+figure,
+footer,
+header,
+hgroup,
+menu,
+nav,
+section {
+	display: block;
+}
+body {
+	line-height: 1;
+}
+ol,
+ul {
+	list-style: none;
+}
+blockquote,
+q {
+	quotes: none;
+}
+blockquote:before,
+blockquote:after,
+q:before,
+q:after {
+	content: "";
+	content: none;
+}
+table {
+	border-collapse: collapse;
+	border-spacing: 0;
+}
 
 /* Root Variables */
 :root {
-  --blue-bulletin: #1D3557;
-  --news-flash: #E63946;
-  --watchdog-white: #F1FAEE;
-  --truth-text: #333;
-  --story-subtitle: #457B9D;
-  --font-body: "Source Sans 3", sans-serif;
-  --font-heading: 'Merriweather', serif;
-  --shadow: 0 4px 6px rgba(0, 0, 0, 0.5);
-  --transition: all 0.5s ease;
+	--blue-bulletin: #1d3557;
+	--news-flash: #e63946;
+	--watchdog-white: #f1faee;
+	--truth-text: #333;
+	--story-subtitle: #457b9d;
+	--font-body: "Source Sans 3", sans-serif;
+	--font-heading: "Merriweather", serif;
+	--shadow: 0 4px 6px rgba(0, 0, 0, 0.5);
+	--transition: all 0.5s ease;
 }
 
 /* Manual Light/Dark Mode Styles*/
 body.light-mode {
-  background-color: var(--watchdog-white);
-  color: var(--truth-text);
+	background-color: var(--watchdog-white);
+	color: var(--truth-text);
 }
+
 body.dark-mode {
-  background-color: var(--truth-text);
-  color: var(--watchdog-white);
+	background-color: var(--truth-text);
+	color: var(--watchdog-white);
 }
+
 #theme-toggle {
-  position: absolute;
-  top: 1rem;
-  right: 1rem;
-  background-color: var(--watchdog-white);
-  border: 1px solid var(--blue-bulletin);
-  border-radius: 1.5rem;
-  cursor: pointer;
+	position: absolute;
+	top: 1rem;
+	right: 1rem;
+	background-color: var(--watchdog-white);
+	border: 1px solid var(--blue-bulletin);
+	border-radius: 1.5rem;
+	cursor: pointer;
 }
 
 /* ///ADD/// Skip Link Styles */
+#skip {
+	position: absolute;
+	left: -10000px;
+	top: auto;
+	width: 1px;
+	height: 1px;
+	overflow: hidden;
+}
+
+#skip:focus {
+	position: static;
+	width: auto;
+	height: auto;
+}
 
 /* ///ADD/// Navigation Styles */
+#mobile-nav {
+	position: relative;
+	width: 100%;
+}
+
+.menu-button,
+a,
+input[type="submit"] {
+	padding: 0.5rem 1rem;
+	display: inline-block;
+	color: var(--watchdog-white);
+	text-transform: uppercase;
+	text-decoration: none;
+	text-align: center;
+	font-size: 1em;
+	border: none;
+}
+
+.menu-button,
+a {
+	background-color: var(--news-flash);
+	border: 1px solid var(--news-flash);
+	min-width: 0;
+}
+
+.menu-button {
+	display: block;
+	cursor: pointer;
+}
+
+.menu-button:hover,
+a:hover {
+	background-color: var(--blue-bulletin);
+	transition: var(--transition);
+}
+
+.menu a {
+	width: 100%;
+	margin-top: 0.25rem;
+}
+
+#menu-toggle ~ .menu {
+	display: none;
+}
+
+#menu-toggle:checked ~ .menu {
+	display: flex;
+}
+
+.menu {
+	z-index: 10;
+	background-color: var(--blue-bulletin);
+	box-shadow: var(--shadow);
+
+	display: none;
+	flex-flow: column nowrap;
+
+	position: absolute;
+	width: 100%;
+}
 
 /* ///ADD/// Global Layout Styles */
+* {
+	box-sizing: border-box;
+}
+
+body {
+	min-width: 320px;
+	font-family: var(--font-body);
+	font-size: 16px;
+	line-height: 1.5;
+	background-color: var(--watchdog-white);
+	color: var(--truth-text);
+}
+
+header,
+footer,
+main {
+	padding: 1.5rem;
+	width: 100%;
+}
+
+header,
+footer {
+	background-color: var(--blue-bulletin);
+	color: var(--watchdog-white);
+}
+
+header .container,
+footer .container {
+	gap: 0.75rem;
+}
+
+.container,
+main section,
+aside,
+form,
+fieldset {
+	display: grid;
+	gap: 1rem;
+	grid-template-columns: 1fr;
+	position: relative;
+}
+
+.container {
+	gap: 1.5rem;
+}
+
+video {
+	display: block;
+	width: 100%;
+	max-width: 640px;
+	height: auto;
+}
+
+article,
+form,
+fieldset {
+	border: 1px solid var(--blue-bulletin);
+}
+
+article,
+form {
+	padding: 1rem;
+	box-shadow: var(--shadow);
+	min-height: 100%;
+}
+
+main section:nth-child(2) article,
+form {
+	background-color: var(--news-flash);
+	color: var(--watchdog-white);
+}
+
+article {
+	height: max-content;
+	align-self: stretch;
+}
+
+article p::before {
+	content: "";
+	display: block;
+	width: 100%;
+	height: 1px;
+	background: var(--blue-bulletin);
+	margin: 0.25em 0;
+}
+
+article:hover {
+	transition: var(--transition);
+	scale: 105%;
+}
+
+main section:nth-child(2) article p::before {
+	background-color: var(--watchdog-white);
+}
+
+fieldset {
+	padding: 0.5rem;
+}
+
+legend {
+	margin-left: 10px;
+	background-color: var(--news-flash);
+	padding: 5px;
+}
+
+form input[type="text"],
+form input[type="tel"] {
+	width: 100%;
+	font-size: 1em;
+	padding: 0.75rem;
+	font-family: var(--font-body);
+}
+
+input[type="checkbox"] {
+	cursor: pointer;
+	accent-color: var(--blue-bulletin);
+}
+
+fieldset,
+input[type="submit"] {
+	grid-column: 1 / -1;
+}
+
+input[type="submit"] {
+	background-color: var(--blue-bulletin);
+	padding: 1rem 0;
+	cursor: pointer;
+	box-shadow: var(--shadow);
+}
+
+input[type="submit"]:hover {
+	transition: var(--transition);
+	color: var(--blue-bulletin);
+	background-color: var(--watchdog-white);
+}
+
+footer section {
+	display: flex;
+	flex-flow: row wrap;
+	gap: 1rem;
+	box-shadow: none;
+}
 
 /* ///ADD/// Global Text Styles */
+h1,
+h2,
+h3,
+.tagline,
+blockquote {
+	font-family: var(--font-heading);
+	grid-column: 1 / -1;
+}
 
+h1,
+h2,
+h3 {
+	font-variation-settings: "wght" 350;
+	font-weight: 350;
+}
+
+h1 {
+	font-size: 2.5rem;
+	line-height: 1;
+}
+
+h2 {
+	font-size: 1.5rem;
+}
+
+h3 {
+	font-size: 1.25rem;
+}
+
+.tagline,
+blockquote {
+	font-variation-settings:
+		"wght" 500,
+		"wdth" 90;
+	font-weight: 800;
+	font-stretch: 90%;
+}
+
+blockquote {
+	justify-self: center;
+}
+
+small {
+	display: block;
+	width: 100%;
+	margin: 1rem 0;
+	text-align: center;
+}
 
 /* ///ADD/// medium styles 620px */
+@media screen and (min-width: 620px) {
+	.menu-button {
+		display: none;
+	}
 
+	#menu-toggle ~ .menu {
+		display: flex;
+	}
+
+	.menu {
+		flex-flow: row wrap;
+		gap: 1rem;
+		box-shadow: none;
+		margin: 0;
+		position: relative;
+	}
+
+	main section:nth-child(2),
+	aside,
+	form,
+	fieldset {
+		grid-template-columns: 1fr 1fr;
+	}
+}
 
 /* ///ADD/// large styles 920px */
-
+@media screen and (min-width: 920px) {
+	aside,
+	fieldset {
+		grid-template-columns: 1fr 1fr 1fr;
+	}
+}
 
 /* ///ADD/// x-large styles 1024px */
+.container {
+	margin: 0 auto;
+	max-width: 1024px;
+}
 
+/* I hope adding this wrapper to the code was okay.
+This was easier and cleaner than selecting every child of header, main, aside, and footer.
+Also, there isn't an x-large mockup for this. There's only small, medium, and large. */
 
 /* ///ADD/// Interaction Queries for color scheme light and dark and motion preference */
+@media (prefers-color-scheme: dark) {
+	body {
+		background-color: var(--truth-text);
+		color: var(--watchdog-white);
+	}
+}
 
+@media (prefers-color-scheme: light) {
+	body {
+		background-color: var(--watchhog-white);
+		color: var(--truth-text);
+	}
+}
+
+@media (prefers-reduced-motion: reduce) {
+	:root {
+		--transition: none !important;
+	}
+}
 
 /* ///ADD///  Feature Query for :has() that checks if the #menu-toggle is checked */
-@supports (selector(:has(*))) {
-
+@supports (selector(:has(:checked))) {
+	#menu-toggle:checked + .menu-button {
+		background-color: var(--watchdog-white);
+		color: var(--blue-bulletin);
+	}
 }
