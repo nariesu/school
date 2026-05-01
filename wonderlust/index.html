@@ -9,6 +9,7 @@
 		<title>Wonderlust Travel- Destination Majorca</title>
 	</head>
 	<body>
+		<a href="#main" id="skip">Skip to Main Content</a>
 		<header>
 			<h1>Destination Majorca</h1>
 			<p>
@@ -189,7 +190,7 @@
 
 					<section>
 						<!--Responsive Image for resolution switching
-                        images/miranda-blake-L.png" 
+                        images/miranda-blake-L.png"
                         images/miranda-blake-S.png 404w
                         images/miranda-blake-M.png 920w
                         images/miranda-blake-L.png 1280w
@@ -254,7 +255,7 @@
                         images/ines-villegoes-L.png
                         images/ines-villegoes-S.png 404w
                         images/ines-villegoes-M.png 920w
-                        images/ines-villegoes-L.png 1280w 
+                        images/ines-villegoes-L.png 1280w
                     -->
 						<img
 							src="images/ines-villegoes-L.png"
@@ -423,19 +424,19 @@
 				<form>
 					<div>
 						<label for="firstName">First Name<span>*</span></label>
-						<input id="firstName" type="text" name="first-name" />
+						<input id="firstName" type="text" name="first-name" required />
 					</div>
 					<div>
 						<label for="lastName">Last Name<span>*</span></label>
-						<input id="lastName" type="text" name="last-name" />
+						<input id="lastName" type="text" name="last-name" required />
 					</div>
 					<div>
 						<label for="email">Email<span>*</span></label>
-						<input id="email" type="email" name="email" />
+						<input id="email" type="email" name="email" required />
 					</div>
 					<div>
 						<label for="phone">Phone<span>*</span></label>
-						<input id="phone" type="tel" name="phone" />
+						<input id="phone" type="tel" name="phone" required />
 					</div>
 					<fieldset id="preferred-contact">
 						<legend>Preferred Contact Method<span>*</span></legend>
@@ -445,6 +446,7 @@
 								type="radio"
 								value="email"
 								name="preference"
+								required
 							/>
 							<label for="emailPref">Email</label>
 						</div>
@@ -454,6 +456,7 @@
 								type="radio"
 								value="text"
 								name="preference"
+								required
 							/>
 							<label for="textPref">Text</label>
 						</div>
@@ -463,13 +466,14 @@
 								type="radio"
 								value="phone"
 								name="preference"
+								required
 							/>
 							<label for="phonePref">Phone</label>
 						</div>
 					</fieldset>
 					<fieldset id="destination">
 						<legend>Destination<span>*</span></legend>
-						<select id="select-destination">
+						<select id="select-destination" required>
 							<option>Choose</option>
 							<option>Barcelona</option>
 							<option>Granada</option>
@@ -484,7 +488,7 @@
 					</fieldset>
 					<fieldset id="travelTime">
 						<legend>Travel Time<span>*</span></legend>
-						<select id="select-travel-time">
+						<select id="select-travel-time" required>
 							<option>Choose</option>
 							<option>Fall</option>
 							<option>Winter</option>
@@ -493,8 +497,8 @@
 							<option>Flexible</option>
 						</select>
 					</fieldset>
+					<input id="submit" type="submit" name="submit" value="Submit" />
 				</form>
-				<input id="submit" type="submit" name="submit" value="Submit" />
 			</section>
 			<section id="legal">
 				<h2>Legal</h2>
